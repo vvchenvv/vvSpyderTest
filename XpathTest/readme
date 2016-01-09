@@ -1,0 +1,4 @@
+original Version:
+1. Use XPath lib to get require imformation
+2. Store post id ,author,reply-date,content imformation into text file
+3. Use Treadpool and map function to complete multi-thread task 

@@ -1,12 +1,11 @@
 #-*-coding:utf8-*-
 from lxml import etree
-#import GetArticleLink
 import SaveLinkIntoFile
 import requests
 import json
 import re
 
-def GetTiebaImg(links,folder):
+def GetTiebaImg(links):
     for article in links:
         html = requests.get(article)
         html = re.sub(r'charset=(/w*)', 'charset=UTF-8', html.text)
@@ -28,6 +27,6 @@ def GetTiebaImg(links,folder):
             #print(ImgSrc)
         #ImgSrc = BackGroundLink['content']['src']
 
-
-htmlUrl = ['http://tieba.baidu.com/p/3774712708']
-GetTiebaImg(htmlUrl,"vv")
+if __name__ == '__main__':
+    htmlUrl = ['http://tieba.baidu.com/p/4076991537']
+    GetTiebaImg(htmlUrl,"vv")

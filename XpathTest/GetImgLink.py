@@ -31,6 +31,7 @@ def GetImgLink(url):
         #         code.write(graphic.content)
         #     i = i + 1
 
-pagelink = 'http://tieba.baidu.com/p/3522395718?pn=1'
-GetImgLink(pagelink)
+if __name__ == '__main__':
+    pagelink = 'http://tieba.baidu.com/p/3522395718?pn=1'
+    GetImgLink(pagelink)
 

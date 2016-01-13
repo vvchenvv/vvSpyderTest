@@ -7,3 +7,5 @@ def SaveLinkIntoFile(links,Prefix,Suffix):
         with open(Prefix+"{0}.".format(i)+Suffix,"wb") as code:
             code.write(graphic.content)
         i = i + 1
+
+#def make_dirs(Targetdir,folder_name):

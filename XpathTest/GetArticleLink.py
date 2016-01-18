@@ -5,6 +5,7 @@ import requests
 import re
 import os
 import GetTiebaImg
+import time
 
 def GetArticleLinks(url):
     TiebaUrlprefix = 'http://tieba.baidu.com'
@@ -16,9 +17,14 @@ def GetArticleLinks(url):
     for i in range(len(LinkSelector)):
         foldername = LinkSelector[i].strip().lstrip().rstrip('/').replace('/','')
         print(foldername)
-        MakeDir("D:\Python_Cache",foldername)
-        LinkSelector[i] = TiebaUrlprefix + LinkSelector[i]
-        GetTiebaImg.GetTiebaImg([LinkSelector[i]])
+        MakeDir("/root/Pictures",foldername)
+        LinkSelector[i] = TiebaUrlprefix + LinkSelector[i]+"?pn=1"
+        for j in range(1,5):
+            # LinkSelector[i] = LinkSelector[i].replace(len(LinkSelector[i]),str(j))
+            LinkSelector[i] = LinkSelector[i][0:-1] + str(j)
+            print(LinkSelector[i])
+            GetTiebaImg.GetTiebaImg([LinkSelector[i]],j)
+            # time.sleep(0.1)
         os.chdir("../")
 
     print(LinkSelector)

@@ -5,7 +5,7 @@ import requests
 import json
 import re
 
-def GetTiebaImg(links):
+def GetTiebaImg(links,Linkorder):
     for article in links:
         html = requests.get(article)
         html = re.sub(r'charset=(/w*)', 'charset=UTF-8', html.text)
@@ -20,7 +20,7 @@ def GetTiebaImg(links):
 
             if(len(ImgLink) > 0):
                 print(ImgLink)
-                SaveLinkIntoFile.SaveLinkIntoFile(ImgLink,'IMG'+str(imgnum),'jpg')
+                SaveLinkIntoFile.SaveLinkIntoFile(ImgLink,'IMG'+str(imgnum)+str(Linkorder),'jpg')
             imgnum = imgnum + 1
 
 
@@ -29,4 +29,4 @@ def GetTiebaImg(links):
 
 if __name__ == '__main__':
     htmlUrl = ['http://tieba.baidu.com/p/4076991537']
-    GetTiebaImg(htmlUrl,"vv")
+    GetTiebaImg(htmlUrl)

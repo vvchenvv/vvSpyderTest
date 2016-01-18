@@ -17,7 +17,7 @@ def GetImgLink(url):
     i = 0
     for each_link in links:
         graphic = requests.get(each_link)
-        with open("img{0}.jpeg".format(i),"wb") as code:
+        with open("img{0}.jpg".format(i),"wb") as code:
             code.write(graphic.content)
         i = i + 1
     # for each in ImgLink:
